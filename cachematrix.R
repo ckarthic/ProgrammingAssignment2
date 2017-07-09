@@ -4,6 +4,7 @@
 ## makeCacheMatrix takes a normal matrix x and returns a list
 ## of functions that provides get, set, getinverse and setinverse
 ## utility functions that provide the caching of the inverse of x
+## this is the 'special' matrix that caches its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
 	inv <- NULL
@@ -20,13 +21,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## a 'special' function that takes the cacheable matrix as argument and inverses it
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 	inv <- x$getinverse()
 	if(!is.null(inv)){
-		message("getting cached inverse")
+		#message("getting cached inverse")
 		return(inv)
 	}
 	origmat <- x$get()
